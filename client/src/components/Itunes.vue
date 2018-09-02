@@ -2,11 +2,11 @@
   <div>
 
     <div class="accordion row" id="accordionExample"></div>
-    <div class="card col-sm-6 offset-sm-3 bg-dark">
+    <div class="card col-sm-6 offset-sm-3 bg-dark" v-for="data in song">
       <div class="card-header" id="heading${i}">
         <h5 class="mb-0">
           <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#h${i}" aria-expanded="true" aria-controls="h${i}">
-            ${songs.artistName} - ${songs.title}
+            ${artistName} - ${song.title}
           </button>
           <span class="badge badge-light float-right">$${songs.price}</span>
         </h5>

@@ -26,7 +26,8 @@ export default new Vuex.Store({
     listSongs({ commit, dispatch }, artist) {
       songApi.get('/' + artist)
         .then(songs => {
-          commit('setList', songs.data)
+          console.log(songs.data.results)
+          commit('setList', songs.data.results)
           router.push({ name: 'home' })
         })
     }
