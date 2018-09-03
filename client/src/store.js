@@ -15,11 +15,15 @@ let songApi = Axios.create({
 export default new Vuex.Store({
   state: {
     song: {},
-    songs: []
+    songs: [],
+    userSongs: []
   },
   mutations: {
     setList(state, data) {
       state.songs = data
+    },
+    setUserList(state, data) {
+      state.userSongs = data
     }
   },
   actions: {
@@ -31,6 +35,7 @@ export default new Vuex.Store({
           router.push({ name: 'home' })
         })
     }
-
   }
+
+
 })
