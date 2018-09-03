@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
 import router from './router'
+import Song from './models/Song.js'
 
 Vue.use(Vuex)
 
@@ -51,8 +52,8 @@ export default new Vuex.Store({
           commit('setUserList', songs.data)
         })
     },
-    addSong({ commit, dispatch }, data) {
-      server.post('/api/songs', data)
+    addSong({ commit, dispatch }, song) {
+      server.post('/api/songs', song)
         .then(song => {
           console.log(song)
           dispatch('getSongs')

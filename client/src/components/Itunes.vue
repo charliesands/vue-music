@@ -1,30 +1,30 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div id="text-color" class="card col-sm-4 offset-sm-8 bg-dark" v-for="data in song">
+      <div id="text-color" class="card col-sm-4 offset-sm-8 bg-dark" v-for="song in songs">
         <div class="card-header">
           <h5 class="mb-0">
             <!-- <button class="btn btn-link" type="button">
               {{data.artistName}} - {{data.trackCensoredName}}
             </button> -->
-            <span class="badge badge-light float-right">${{data.trackPrice}}</span>
+            <span class="badge badge-light float-right">${{song.trackPrice}}</span>
             <div>
-              {{data.artistName}} - {{data.trackCensoredName}}
+              {{song.artistName}} - {{song.trackCensoredName}}
             </div>
           </h5>
         </div>
 
-        <!-- <div id="h${i}" class="collapse show" aria-labelledby="heading${i}" data-parent="#accordionExample"> -->
+        <!-- <div id="h${i}" class="collapse show" aria-labelledby="heading${i}" song-parent="#accordionExample"> -->
         <div class="card-body text-center">
           <div class="mb-1" id="album">
-            {{data.collectionName}}
+            {{song.collectionName}}
           </div>
           <div class="mb-2">
-            <img :src="data.artworkUrl100" id="img" />
+            <img :src="song.artworkUrl100" id="img" />
           </div>
           <audio controls>
-            <source :src="data.previewUrl" type="audio/ogg">
-            <source :src="data.previewUrl" type="audio/mpeg"> Your browser does not support the audio element.
+            <source :src="song.previewUrl" type="audio/ogg">
+            <source :src="song.previewUrl" type="audio/mpeg"> Your browser does not support the audio element.
           </audio>
           <span>
             <button @click="addSong" class="fas fa-plus float-left fa-3x"></button>
@@ -42,22 +42,22 @@
 <script>
   export default {
     name: 'itunes',
-    data() {
-      return {
-        // songObject: {
-        //   trackPrice: "",
-        //   artistName: "",
-        //   trackCensoredName: "",
-        //   collectionName: "",
-        //   artworkUrl100: "",
-        //   previewUrl: "",
-        //   trackId: ""
-        // }
-      }
+    // data() {
+    //   return {
+    //     // songObject: {
+    //     //   trackPrice: "",
+    //     //   artistName: "",
+    //     //   trackCensoredName: "",
+    //     //   collectionName: "",
+    //     //   artworkUrl100: "",
+    //     //   previewUrl: "",
+    //     //   trackId: ""
+    //     // }
+    //   }
 
-    },
+    // },
     computed: {
-      song() {
+      songs() {
         return this.$store.state.songs
       }
     },
@@ -78,8 +78,8 @@
       //   this.songObject.trackId = trackId
       //   this.$store.dispatch('addSong', this.songObject)
       // }
-      addSong(data) {
-        this.$store.dispatch('addSong', data)
+      addSong(song) {
+        this.$store.dispatch('addSong', song)
       }
     }
   }
