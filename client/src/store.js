@@ -12,7 +12,7 @@ let songApi = Axios.create({
 })
 
 let server = Axios.create({
-  baseURL: '//localhost:3000',
+  baseURL: '//localhost:3000/api/songs',
   timeout: 3000
 })
 
@@ -41,22 +41,23 @@ export default new Vuex.Store({
       songApi.get('/' + artist)
         .then(songs => {
           console.log(songs.data.results)
-          commit('setList', songs.data.results)
-          router.push({ name: 'home' })
+          let searchResults = songs.data.results.map(s => new Song(s))
+          commit('setList', searchResults)
+          // router.push({ name: 'home' })
         })
     },
     getSongs({ commit, dispatch }) {
-      server.get('/api/songs')
+      server.get('/')
         .then(songs => {
           console.log(songs)
           commit('setUserList', songs.data)
         })
     },
     addSong({ commit, dispatch }, song) {
-      server.post('/api/songs', song)
+      server.post('', song)
         .then(song => {
           console.log(song)
-          dispatch('getSongs')
+          // dispatch('getSongs')
         })
     }
 

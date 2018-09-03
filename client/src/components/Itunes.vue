@@ -27,7 +27,7 @@
             <source :src="song.previewUrl" type="audio/mpeg"> Your browser does not support the audio element.
           </audio>
           <span>
-            <button @click="addSong" class="fas fa-plus float-left fa-3x"></button>
+            <button @click="addSong(song)" class="fas fa-plus float-left fa-3x"></button>
           </span>
         </div>
       </div>
