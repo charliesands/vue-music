@@ -10,12 +10,18 @@ let songApi = Axios.create({
   timeout: 3000
 })
 
+let server = Axios.create({
+  baseURL: '//localhost:3000',
+  timeout: 3000
+})
+
 // 'https://itunes.apple.com/search?callback=?&entity=song&term='
 
 export default new Vuex.Store({
   state: {
     song: {},
     songs: [],
+    userSong: {},
     userSongs: []
   },
   mutations: {
@@ -24,6 +30,9 @@ export default new Vuex.Store({
     },
     setUserList(state, data) {
       state.userSongs = data
+    },
+    setUserSong(state, data) {
+      state.userSong = data
     }
   },
   actions: {
@@ -34,7 +43,22 @@ export default new Vuex.Store({
           commit('setList', songs.data.results)
           router.push({ name: 'home' })
         })
+    },
+    getSongs({ commit, dispatch }) {
+      server.get('/api/songs')
+        .then(songs => {
+          console.log(songs)
+          commit('setUserList', songs.data)
+        })
+    },
+    addSong({ commit, dispatch }, data) {
+      server.post('/api/songs', data)
+        .then(song => {
+          console.log(song)
+          dispatch('getSongs')
+        })
     }
+
   }
 
 })

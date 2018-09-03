@@ -27,7 +27,7 @@
             <source :src="data.previewUrl" type="audio/mpeg"> Your browser does not support the audio element.
           </audio>
           <span>
-            <i class="fas fa-plus float-left fa-3x"></i>
+            <button @click="addSong" class="fas fa-plus float-left fa-3x"></button>
           </span>
         </div>
       </div>
@@ -42,9 +42,44 @@
 <script>
   export default {
     name: 'itunes',
+    data() {
+      return {
+        // songObject: {
+        //   trackPrice: "",
+        //   artistName: "",
+        //   trackCensoredName: "",
+        //   collectionName: "",
+        //   artworkUrl100: "",
+        //   previewUrl: "",
+        //   trackId: ""
+        // }
+      }
+
+    },
     computed: {
       song() {
         return this.$store.state.songs
+      }
+    },
+    methods: {
+      // setSongObject(trackPrice,
+      //   artistName,
+      //   trackCensoredName,
+      //   collectionName,
+      //   artworkUrl100,
+      //   previewUrl,
+      //   trackId) {
+      //   this.songObject.trackPrice = trackPrice
+      //   this.songObject.artistName = artistName
+      //   this.songObject.trackCensoredName = trackCensoredName
+      //   this.songObject.collectionName = collectionName
+      //   this.songObject.artworkUrl100 = artworkUrl100
+      //   this.songObject.previewUrl = previewUrl
+      //   this.songObject.trackId = trackId
+      //   this.$store.dispatch('addSong', this.songObject)
+      // }
+      addSong(data) {
+        this.$store.dispatch('addSong', data)
       }
     }
   }

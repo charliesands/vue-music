@@ -4,27 +4,25 @@ let ObjectId = Schema.Types.ObjectId
 let schemaName = 'Song'
 
 let schema = new Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  albumArt: {
+  trackPrice: {
     type: String
   },
-  artist: {
-    type: String,
-    required: true
-  },
-  albumCollection: {
+  artistName: {
     type: String
   },
-  price: {
+  trackCensoredName: {
+    type: String
+  },
+  collectionName: {
+    type: String
+  },
+  artworkUrl100: {
     type: Number
   },
-  preview: {
+  previewUrl: {
     type: String
   },
-  id: {
+  trackId: {
     type: String
   }
 })
