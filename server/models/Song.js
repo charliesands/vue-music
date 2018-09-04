@@ -5,32 +5,25 @@ let schemaName = 'Song'
 
 let schema = new Schema({
   trackPrice: {
-    type: Number,
-    required: true
+    type: Number
   },
   artistName: {
-    type: String,
-    required: true
+    type: String
   },
   trackCensoredName: {
-    type: String,
-    required: true
+    type: String
   },
   collectionName: {
-    type: String,
-    required: true
+    type: String
   },
   artworkUrl100: {
-    type: Number,
-    required: true
+    type: String
   },
   previewUrl: {
-    type: String,
-    required: true
+    type: String
   },
   trackId: {
-    type: Number,
-    required: true
+    type: Number
   }
 })
 

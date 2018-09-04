@@ -57,7 +57,7 @@ export default new Vuex.Store({
       server.post('', song)
         .then(song => {
           console.log(song)
-          // dispatch('getSongs')
+          dispatch('getSongs')
         })
     }
 
