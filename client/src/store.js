@@ -43,7 +43,7 @@ export default new Vuex.Store({
           console.log(songs.data.results)
           let searchResults = songs.data.results.map(s => new Song(s))
           commit('setList', searchResults)
-          // router.push({ name: 'home' })
+          router.push({ name: 'home' })
         })
     },
     getSongs({ commit, dispatch }) {
@@ -58,6 +58,12 @@ export default new Vuex.Store({
       server.post('', song)
         .then(song => {
           console.log(song)
+          dispatch('getSongs')
+        })
+    },
+    removeSong({ commit, dispatch }, song) {
+      server.delete('/' + song._id)
+        .then(res => {
           dispatch('getSongs')
         })
     }

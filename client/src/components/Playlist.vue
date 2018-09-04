@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div id="text-color" class="card col-sm-4 offset-4 bg-dark" v-for="song in playlist">
+  <div class="">
+    <div class="">
+      <div id="text-color" class="card bg-dark" v-for="song in playlist">
         <div class="card-header">
           <h5 class="mb-0">
             <!-- <button class="btn btn-link" type="button">
@@ -27,7 +27,7 @@
             <source :src="song.previewUrl" type="audio/mpeg"> Your browser does not support the audio element.
           </audio>
           <span>
-            <button @click="addSong(song)" class="fas fa-plus float-left fa-3x"></button>
+            <button @click="removeSong(song)" class="fas fa-times float-left fa-3x"></button>
           </span>
         </div>
       </div>
@@ -51,8 +51,8 @@
       }
     },
     methods: {
-      addSong(song) {
-        this.$store.dispatch('addSong', song)
+      removeSong(song) {
+        this.$store.dispatch('removeSong', song)
       }
     }
   }

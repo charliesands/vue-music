@@ -1,18 +1,13 @@
 <template>
   <div class="home">
-    <form v-on:submit.prevent="startSearch">
+    <form v-on:submit.prevent="startSearch" class="float-left">
       <input type="text" v-model="search.searchResults.artist" placeholder="Search Artist">
       <button type="button" @click="startSearch">Search</button>
     </form>
     <div class="container-fluid">
       <div class="row">
-        <div class="col">
-
-          <itunes class="col-6"></itunes>
-
-          <playlist class="col-6"></playlist>
-        </div>
-
+        <playlist class="offset-4 col-4"></playlist>
+        <itunes class="col-4"></itunes>
       </div>
     </div>
   </div>
@@ -54,3 +49,14 @@
     }
   }
 </script>
+
+<style>
+  body {
+    background-image: url(https://pbs.twimg.com/media/CODNeh9WwAASotR.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    width: auto;
+  }
+</style>
