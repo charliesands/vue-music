@@ -2,7 +2,7 @@
   <div class="home">
     <form v-on:submit.prevent="startSearch" class="float-left">
       <input type="text" v-model="search.searchResults.artist" placeholder="Search Artist">
-      <button type="button" @click="startSearch">Search</button>
+      <button type="button" class="btn btn-dark" @click="startSearch">Search</button>
     </form>
     <div class="container-fluid">
       <div class="row">
