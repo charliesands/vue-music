@@ -51,6 +51,7 @@ export default new Vuex.Store({
         .then(songs => {
           console.log(songs)
           commit('setUserList', songs.data)
+          router.push({ name: 'home' })
         })
     },
     addSong({ commit, dispatch }, song) {
