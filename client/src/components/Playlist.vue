@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="">
-      <div id="text-color" class="card bg-dark" v-for="song in playlist">
+      <div id="text-color" class="card bg-dark" v-for="song in playlist" :key="song._id">
         <div class="card-header">
           <h5 class="mb-0">
             <!-- <button class="btn btn-link" type="button">
