@@ -43,9 +43,7 @@
     methods: {
       startSearch() {
         this.$store.dispatch('listSongs', this.search.searchResults.artist)
-
       }
-
     }
   }
 </script>

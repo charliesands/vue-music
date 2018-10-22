@@ -4,17 +4,12 @@
       <div id="text-color" class="card bg-dark" v-for="song in playlist" :key="song._id">
         <div class="card-header">
           <h5 class="mb-0">
-            <!-- <button class="btn btn-link" type="button">
-              {{data.artistName}} - {{data.trackCensoredName}}
-            </button> -->
             <span class="badge badge-light float-right">${{song.trackPrice}}</span>
             <div>
               {{song.artistName}} - {{song.trackCensoredName}}
             </div>
           </h5>
         </div>
-
-        <!-- <div id="h${i}" class="collapse show" aria-labelledby="heading${i}" song-parent="#accordionExample"> -->
         <div class="card-body text-center">
           <div class="mb-1" id="album">
             {{song.collectionName}}
@@ -56,8 +51,6 @@
       }
     }
   }
-
-
 </script>
 
 <style>
@@ -68,6 +61,5 @@
 
   #text-color {
     color: antiquewhite;
-
   }
 </style>

@@ -16,8 +16,6 @@ let server = Axios.create({
   timeout: 3000
 })
 
-// 'https://itunes.apple.com/search?callback=?&entity=song&term='
-
 export default new Vuex.Store({
   state: {
     song: {},

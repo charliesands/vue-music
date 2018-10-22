@@ -13,15 +13,9 @@ server.use(bp.urlencoded(({
 })))
 server.use(express.static(__dirname + '/../www/'))
 
-//routes example
-
 let songRoutes = require('./routes/Songs')
-// let commentRoutes = require('./routes/comments')
-// let userRoutes = require('./routes/users')
 
 server.use('/api/songs', songRoutes)
-// server.use('/api/comments', commentRoutes)
-// server.use('/api/posts', postRoutes)
 
 server.use('/api/*', (err, req, res, next) => {
   res.status(400).send(err)

@@ -4,17 +4,12 @@
       <div id="text-color" class="card bg-dark" v-for="song in songs" :key="song.trackId">
         <div class="card-header">
           <h5 class="mb-0">
-            <!-- <button class="btn btn-link" type="button">
-              {{data.artistName}} - {{data.trackCensoredName}}
-            </button> -->
             <span class="badge badge-light float-right">${{song.trackPrice}}</span>
             <div>
               {{song.artistName}} - {{song.trackCensoredName}}
             </div>
           </h5>
         </div>
-
-        <!-- <div id="h${i}" class="collapse show" aria-labelledby="heading${i}" song-parent="#accordionExample"> -->
         <div class="card-body text-center">
           <div class="mb-1" id="album">
             {{song.collectionName}}
@@ -42,49 +37,17 @@
 <script>
   export default {
     name: 'itunes',
-    // data() {
-    //   return {
-    //     // songObject: {
-    //     //   trackPrice: "",
-    //     //   artistName: "",
-    //     //   trackCensoredName: "",
-    //     //   collectionName: "",
-    //     //   artworkUrl100: "",
-    //     //   previewUrl: "",
-    //     //   trackId: ""
-    //     // }
-    //   }
-
-    // },
     computed: {
       songs() {
         return this.$store.state.songs
       }
     },
     methods: {
-      // setSongObject(trackPrice,
-      //   artistName,
-      //   trackCensoredName,
-      //   collectionName,
-      //   artworkUrl100,
-      //   previewUrl,
-      //   trackId) {
-      //   this.songObject.trackPrice = trackPrice
-      //   this.songObject.artistName = artistName
-      //   this.songObject.trackCensoredName = trackCensoredName
-      //   this.songObject.collectionName = collectionName
-      //   this.songObject.artworkUrl100 = artworkUrl100
-      //   this.songObject.previewUrl = previewUrl
-      //   this.songObject.trackId = trackId
-      //   this.$store.dispatch('addSong', this.songObject)
-      // }
       addSong(song) {
         this.$store.dispatch('addSong', song)
       }
     }
   }
-
-
 </script>
 
 <style>
@@ -95,6 +58,5 @@
 
   #text-color {
     color: antiquewhite;
-
   }
 </style>
